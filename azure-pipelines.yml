@@ -9,6 +9,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- script: |
+    env
+  displayName: 'run env'
+
 # gradlew build
 - task: Gradle@3
   inputs:
