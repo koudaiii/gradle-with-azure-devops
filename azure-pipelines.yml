@@ -15,7 +15,7 @@ steps:
   displayName: 'run env'
 
 # gradlew build
-- task: Gradle@1
+- task: Gradle@3
   inputs:
     gradleWrapperFile: 'gradlew'
     tasks: 'build'
