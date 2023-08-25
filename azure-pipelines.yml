@@ -10,6 +10,26 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- script: |
+    env
+  displayName: 'run env'
+
+# Adding gradle wrapper
+- script: |
+    gradle wrapper
+  displayName: 'run gradle wrapper'
+
+# gradlew build
+- task: Gradle@3
+  inputs:
+    gradleWrapperFile: 'gradlew'
+    tasks: 'build'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: false
+    spotBugsAnalysis: false
+
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
